@@ -1,0 +1,33 @@
+﻿@model List<CRUD1.Models.info>
+
+@{
+    ViewBag.Title = "InfoList";
+}
+
+
+<h2>InfoList</h2>
+
+<table class="table table-hover">
+    <tr>
+        <th>Name</th>
+        <th>Father Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Discription</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+     {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Fname</td>
+            <td>@item.Email</td>
+            <td>@item.Mobile</td>
+            <td>@item.Discription</td>
+            <td>
+                <a href="@Url.Action("Info", new { item.ID, item.Name, item.Fname, item.Email, item.Mobile, item.Discription })" class="btn btn-success">Edit</a>
+                <a href="@Url.Action("Delete", new { item.ID})" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+     }
+</table>
